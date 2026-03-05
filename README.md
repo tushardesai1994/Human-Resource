@@ -78,3 +78,48 @@ Profile-based drill-through reporting
 
 📈 Key Metrics Logic
 
+  ▫️ Active Employees = CALCULATE(
+      [Hires] - [Resignations],
+      FILTER(
+          ALL(dDate[Date]),
+          dDate[Date] <= MAX(dDate[Date])
+      )
+  )
+  
+  ▫️ Hires = Count of Employees
+  
+  ▫️ Resignations = CALCULATE(
+      COUNTROWS(fEmployee),
+      fEmployee[Termination Date] <> BLANK(),
+      USERELATIONSHIP(dDate[Date],fEmployee[Termination Date])
+  )
+  
+  ▫️ Turnover Rate = Resignations / Hires
+
+🧠 Concepts Demonstrated
+
+  ▫️ Star Schema Modeling
+  
+  ▫️ Active vs Inactive Relationships
+  
+  ▫️ USERELATIONSHIP in DAX
+  
+  ▫️ Time Intelligence Calculations
+  
+  ▫️ Workforce Attrition Modeling
+  
+  ▫️ HR KPI Design Best Practices
+  
+  ▫️ Profile-based Data Enrichment
+
+🎯 Purpose
+
+This project is designed as:
+
+  ▫️ A portfolio project for HR analytics
+  
+  ▫️ A demonstration of advanced Power BI modeling skills
+  
+  ▫️ A reusable HR reporting template
+  
+  ▫️ A workforce analytics showcase
